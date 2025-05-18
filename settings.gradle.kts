@@ -19,6 +19,7 @@ dependencyResolutionManagement {
         maven("https://maven.aliyun.com/repository/central")
         maven("https://maven.aliyun.com/repository/public")
         maven("https://maven.aliyun.com/repository/gradle-plugin")
+        maven { url = uri("https://maven.mozilla.org/maven2/") }
         google()
         mavenCentral()
     }
