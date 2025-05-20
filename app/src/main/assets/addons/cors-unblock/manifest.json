@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "cors-unblock",
+  "description": "Bypass CORS restrictions and access cross-origin resources effortlessly.",
+  "version": "1.0.0",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "applications": {
+    "gecko": {
+      "id": "cors-unblock@lisnote.com"
+    }
+  }
+}
