@@ -1,7 +1,6 @@
 package com.lisnote.any.any_web
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +10,7 @@ import org.mozilla.geckoview.GeckoRuntime
 import org.mozilla.geckoview.GeckoRuntimeSettings
 import org.mozilla.geckoview.GeckoSession
 import org.mozilla.geckoview.GeckoView
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var session: GeckoSession
@@ -23,15 +23,22 @@ class MainActivity : AppCompatActivity() {
         session = GeckoSession()
         val config = GeckoRuntimeSettings.Builder().consoleOutput(true).build()
         val runtime = GeckoRuntime.create(this, config)
+
         runtime
             .webExtensionController
             .ensureBuiltIn(
                 "resource://android/assets/addons/cors-unblock/",
-                "messaging@example.com"
+                "cors-unblock@lisnote.com"
             )
-        session.open(runtime)
-        view.setSession(session)
-        session.loadUri("https://mes.opezw.com")
+            .accept { extension ->
+                ThreadUtils.runOnUiThread(
+                    Runnable {
+                        val baseUrl = extension?.metaData?.baseUrl
+                        session.open(runtime)
+                        view.setSession(session)
+                        session.loadUri("${baseUrl}www/index.html")
+                    })
+            }
 
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

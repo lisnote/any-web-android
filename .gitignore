@@ -13,4 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
-app/src/main/assets/www
+temp
+temp.*
+app/src/main/assets/addons/cors-unblock/www
