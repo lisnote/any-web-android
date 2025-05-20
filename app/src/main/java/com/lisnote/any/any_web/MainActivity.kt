@@ -10,18 +10,20 @@ import org.mozilla.geckoview.GeckoSession
 import org.mozilla.geckoview.GeckoView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var geckoSession: GeckoSession
+    private lateinit var session: GeckoSession
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val geckoView = findViewById<GeckoView>(R.id.geckoView)
-        geckoSession = GeckoSession()
-        geckoSession.open(GeckoRuntime.create(this))
-        geckoView.setSession(geckoSession)
-        geckoSession.loadUri("https://mes.opezw.com")
+        val view = findViewById<GeckoView>(R.id.geckoView)
+        session = GeckoSession()
+        val runtime = GeckoRuntime.create(this)
+        session.open(runtime)
+        view.setSession(session)
+
+        session.loadUri("https://mes.opezw.com")
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
