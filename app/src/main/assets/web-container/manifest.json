@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "web-container",
+  "description": "A built-in GeckoView extension for hosting local web content.",
+  "version": "1.0.0",
+  "permissions": [
+    "<all_urls>"
+  ],
+  "applications": {
+    "gecko": {
+      "id": "web-container@lisnote.com"
+    }
+  }
+}

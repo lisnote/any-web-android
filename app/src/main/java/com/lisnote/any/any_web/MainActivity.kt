@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         runtime
             .webExtensionController
             .ensureBuiltIn(
-                "resource://android/assets/addons/cors-unblock/",
-                "cors-unblock@lisnote.com"
+                "resource://android/assets/web-container/",
+                "web-container@lisnote.com"
             )
             .accept { extension ->
                 ThreadUtils.runOnUiThread(
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                         val baseUrl = extension?.metaData?.baseUrl
                         session.open(runtime)
                         view.setSession(session)
-                        session.loadUri("${baseUrl}www/index.html")
+                        session.loadUri("${baseUrl}dist/index.html")
                     })
             }
 
