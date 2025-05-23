@@ -4,8 +4,15 @@
   "description": "A built-in GeckoView extension for hosting local web content.",
   "version": "1.0.0",
   "permissions": [
+    "webRequest",
+    "webRequestBlocking",
     "<all_urls>"
   ],
+  "background": {
+    "scripts": [
+      "cors.js"
+    ]
+  },
   "applications": {
     "gecko": {
       "id": "web-container@lisnote.com"
