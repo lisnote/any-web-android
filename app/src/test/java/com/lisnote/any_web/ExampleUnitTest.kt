@@ -1,4 +1,4 @@
-package com.lisnote.any.any_web
+package com.lisnote.any_web
 
 import org.junit.Test
 

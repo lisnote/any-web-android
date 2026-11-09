@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.lisnote.any.any_web"
+    namespace = "com.lisnote.any_web"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.lisnote.any.any_web"
+        applicationId = "com.lisnote.any_web"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -39,7 +39,8 @@ android {
         abi {
             isEnable = true
             reset()
-            include("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            // include("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            include("arm64-v8a")
             isUniversalApk = false
         }
     }

@@ -1,4 +1,4 @@
-package com.lisnote.any.any_web
+package com.lisnote.any_web
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.lisnote.any.any_web", appContext.packageName)
+        assertEquals("com.lisnote.any_web", appContext.packageName)
     }
 }
